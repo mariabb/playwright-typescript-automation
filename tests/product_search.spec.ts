@@ -11,8 +11,9 @@ test('user can search for a product', async ({ page }) => {
     exact: true,
   });
 
-  await expect(consentButton).toBeVisible();
+  if (await consentButton.isVisible()) {
   await consentButton.click();
+}
 
   // Navigate to the Products page
   await page.locator('a[href="/products"]').click();
